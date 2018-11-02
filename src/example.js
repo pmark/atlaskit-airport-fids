@@ -108,10 +108,7 @@ export default class LayoutExample extends Component<void, State> {
           method="GET"
           target="submitFrame"
         >
-          <FormHeader
-            title="(FRA) Frankfurt Flughafen Ankünfte"
-            description=""
-          />
+          <FormHeader title="(FRA) Frankfurt Airport Arrivals" description="" />
 
           <FormSection name="section-1" title="" description="">
             <Grid>
@@ -130,8 +127,8 @@ export default class LayoutExample extends Component<void, State> {
                   isInvalid={false}
                 >
                   <Select
-                    className="single-select"
-                    classNamePrefix="react-select"
+                    className=""
+                    classNamePrefix=""
                     options={timeOptions}
                     placeholder=""
                     defaultValue={timeOptions[2]}
@@ -152,13 +149,28 @@ export default class LayoutExample extends Component<void, State> {
         </Form>
         <Grid layout="fluid">
           <GridColumn medium="4">
-            <Hyperlink>More FRA Departures</Hyperlink>
+            <Hyperlink
+              href="https://www.flightstats.com/v2/flight-tracker/departures/FRA"
+              target="_blank"
+            >
+              More FRA Departures
+            </Hyperlink>
           </GridColumn>
           <GridColumn medium="4">
-            <Hyperlink>FRA Weather</Hyperlink>
+            <Hyperlink
+              href="https://www.flightstats.com/v2/airport-conditions/FRA"
+              target="_blank"
+            >
+              FRA Weather
+            </Hyperlink>
           </GridColumn>
           <GridColumn medium="4">
-            <Hyperlink>More FRA Arrivals</Hyperlink>
+            <Hyperlink
+              href="https://www.flightstats.com/v2/flight-tracker/arrivals/FRA"
+              target="_blank"
+            >
+              More FRA Arrivals
+            </Hyperlink>
           </GridColumn>
         </Grid>
 
