@@ -173,7 +173,7 @@ export default class LayoutExample extends Component<void, State> {
               loadingSpinnerSize="large"
               isLoading={false}
               isFixedSize
-              defaultSortKey="term"
+              defaultSortKey="flight"
               defaultSortOrder="ASC"
               onSort={() => console.log("onSort")}
               onSetPage={() => console.log("onSetPage")}

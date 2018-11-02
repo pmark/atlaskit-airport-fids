@@ -1,17 +1,18 @@
 // @flow
 /* sample-data.js */
-import React from 'react';
-import Avatar from '@atlaskit/avatar';
+import React from "react";
+import Avatar from "@atlaskit/avatar";
 import DropdownMenu, {
   DropdownItemGroup,
-  DropdownItem,
-} from '@atlaskit/dropdown-menu';
-import styled from 'styled-components';
-import presidents from './presidents.json';
-import lorem from './lorem.json';
+  DropdownItem
+} from "@atlaskit/dropdown-menu";
+import styled from "styled-components";
+import presidents from "./presidents.json";
+import lorem from "./lorem.json";
+import { flights } from "./bs";
 
 function createKey(input) {
-  return input ? input.replace(/^(the|a|an)/, '').replace(/\s/g, '') : input;
+  return input ? input.replace(/^(the|a|an)/, "").replace(/\s/g, "") : input;
 }
 
 function getRandomString() {
@@ -27,85 +28,73 @@ const AvatarWrapper = styled.div`
   margin-right: 8px;
 `;
 
-export const caption = 'List of US Presidents';
+export const caption = "List of US Presidents";
 
 export const createHead = (withWidth: boolean) => {
   return {
     cells: [
       {
-        key: 'name',
-        content: 'Name',
+        key: "flight",
+        content: "Flight",
         isSortable: true,
-        width: withWidth ? 25 : undefined,
+        width: withWidth ? 10 : undefined
       },
       {
-        key: 'party',
-        content: 'Party',
-        shouldTruncate: true,
-        isSortable: true,
-        width: withWidth ? 15 : undefined,
-      },
-      {
-        key: 'term',
-        content: 'Term',
+        key: "carrier",
+        content: "Carrier",
         shouldTruncate: true,
         isSortable: true,
-        width: withWidth ? 10 : undefined,
+        width: withWidth ? 15 : undefined
       },
       {
-        key: 'content',
-        content: 'Comment',
+        key: "destination",
+        content: "Destination",
         shouldTruncate: true,
+        isSortable: true,
+        width: withWidth ? 30 : undefined
       },
       {
-        key: 'more',
-        shouldTruncate: true,
+        key: "departure",
+        content: "Departure",
+        shouldTruncate: true
       },
-    ],
+      {
+        key: "status",
+        content: "Status",
+        shouldTruncate: true
+      }
+    ]
   };
 };
 
 export const head = createHead(true);
 
-export const rows = presidents.map((president, index) => ({
-  key: `row-${index}-${president.nm}`,
+export const rows = flights.map((flight, index) => ({
+  key: `row-${index}-${flight[0]}`,
   cells: [
     {
-      key: createKey(president.nm),
+      key: createKey(flight[0]),
       content: (
         <NameWrapper>
-          <AvatarWrapper>
-            <Avatar
-              name={president.nm}
-              size="medium"
-              src={`https://api.adorable.io/avatars/24/${encodeURIComponent(
-                president.nm,
-              )}.png`}
-            />
-          </AvatarWrapper>
-          <a href="https://atlassian.design">{president.nm}</a>
+          <a href="https://atlassian.design">{flight[0]}</a>
         </NameWrapper>
-      ),
+      )
     },
     {
-      key: createKey(president.pp),
-      content: president.pp,
+      key: createKey(flight[1]),
+      content: flight[1]
     },
     {
-      key: president.id,
-      content: president.tm,
+      key: flight[2],
+      content: flight[2]
     },
     {
-      content: getRandomString(),
+      key: flight[3],
+      content: flight[3]
     },
     {
-      content: (
-        <DropdownMenu trigger="More" triggerType="button">
-          <DropdownItemGroup>
-            <DropdownItem>{president.nm}</DropdownItem>
-          </DropdownItemGroup>
-        </DropdownMenu>
-      ),
-    },
-  ],
+      key: flight[4],
+      content: flight[4]
+    }
+  ]
 }));
