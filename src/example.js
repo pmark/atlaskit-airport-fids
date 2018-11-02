@@ -115,14 +115,14 @@ export default class LayoutExample extends Component<void, State> {
                 <PageHeader>(FRA) Frankfurt Airport Arrivals</PageHeader>
               </GridColumn>
             </Grid>
-            <Grid>
+            <Grid layout="fluid" spacing="comfortable">
               <GridColumn medium="5">
                 <Field label="Date">
                   <DatePicker defaultValue="2018-01-02" />
                 </Field>
               </GridColumn>
             </Grid>
-            <Grid>
+            <Grid layout="fluid" spacing="comfortable">
               <GridColumn medium="5">
                 <Field label="Timespan" helperText="" invalidMessage="">
                   <Select
