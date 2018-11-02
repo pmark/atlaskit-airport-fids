@@ -32,6 +32,7 @@ const Hyperlink = styled.a`
   padding: 10px;
   margin: 10px 0;
   border-radius: 4px;
+  max-width: 150px;
 
   &:hover {
     background: #bbb;
@@ -108,17 +109,23 @@ export default class LayoutExample extends Component<void, State> {
           method="GET"
           target="submitFrame"
         >
-          <FormHeader title="(FRA) Frankfurt Airport Arrivals" description="" />
+          <FormHeader title="" description="" />
 
           <FormSection name="section-1" title="" description="">
-            <Grid>
+            <Grid layout="fluid" spacing="comfortable">
+              <GridColumn>
+                <PageHeader>(FRA) Frankfurt Airport Arrivals</PageHeader>
+              </GridColumn>
+            </Grid>
+
+            <Grid layout="fluid" spacing="comfortable">
               <GridColumn medium="5">
                 <Field label="Date">
                   <DatePicker defaultValue="2018-01-02" />
                 </Field>
               </GridColumn>
             </Grid>
-            <Grid>
+            <Grid layout="fluid" spacing="comfortable">
               <GridColumn medium="5">
                 <Field label="Timespan" helperText="" invalidMessage="">
                   <Select
@@ -142,7 +149,7 @@ export default class LayoutExample extends Component<void, State> {
             </Grid>
           </FormSection>
         </Form>
-        <Grid layout="fluid">
+        <Grid layout="fluid" spacing="comfortable">
           <GridColumn medium="4">
             <Hyperlink
               href="https://www.flightstats.com/v2/flight-tracker/departures/FRA"
