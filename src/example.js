@@ -120,12 +120,7 @@ export default class LayoutExample extends Component<void, State> {
             </Grid>
             <Grid>
               <GridColumn medium="5">
-                <Field
-                  label="Timespan"
-                  helperText=""
-                  invalidMessage=""
-                  isInvalid={false}
-                >
+                <Field label="Timespan" helperText="" invalidMessage="">
                   <Select
                     className=""
                     classNamePrefix=""
