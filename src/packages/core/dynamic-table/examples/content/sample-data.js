@@ -34,27 +34,33 @@ export const createHead = (withWidth: boolean) => {
   return {
     cells: [
       {
-        key: "name",
-        content: "Name",
+        key: "flight",
+        content: "Flight",
         isSortable: true,
-        width: withWidth ? 25 : undefined
+        width: withWidth ? 10 : undefined
       },
       {
-        key: "party",
-        content: "Party",
+        key: "carrier",
+        content: "Carrier",
         shouldTruncate: true,
         isSortable: true,
         width: withWidth ? 15 : undefined
       },
       {
-        key: "term",
-        content: "Term",
+        key: "destination",
+        content: "Destination",
         shouldTruncate: true,
         isSortable: true,
-        width: withWidth ? 10 : undefined
+        width: withWidth ? 30 : undefined
       },
       {
-        key: "more",
+        key: "departure",
+        content: "Departure",
+        shouldTruncate: true
+      },
+      {
+        key: "status",
+        content: "Status",
         shouldTruncate: true
       }
     ]
@@ -89,6 +95,6 @@ export const rows = flights.map((flight, index) => ({
     {
       key: flight[4],
       content: flight[4]
-    },
+    }
   ]
 }));
