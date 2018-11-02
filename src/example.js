@@ -26,15 +26,16 @@ import {
 } from "./packages/core/dynamic-table/examples/content/sample-data";
 
 const Hyperlink = styled.a`
-  background: #ddd;
+  background: #fea;
   text-align: center;
   display: block;
   padding: 10px;
   margin: 10px 0;
   border-radius: 4px;
+  max-width: 150px;
 
   &:hover {
-    background: #bbb;
+    background: #eda;
   }
 `;
 
@@ -108,9 +109,12 @@ export default class LayoutExample extends Component<void, State> {
           method="GET"
           target="submitFrame"
         >
-          <FormHeader title="(FRA) Frankfurt Airport Arrivals" description="" />
-
           <FormSection name="section-1" title="" description="">
+            <Grid layout="fluid" spacing="comfortable">
+              <GridColumn>
+                <PageHeader>(FRA) Frankfurt Airport Arrivals</PageHeader>
+              </GridColumn>
+            </Grid>
             <Grid>
               <GridColumn medium="5">
                 <Field label="Date">
@@ -142,7 +146,7 @@ export default class LayoutExample extends Component<void, State> {
             </Grid>
           </FormSection>
         </Form>
-        <Grid layout="fluid">
+        <Grid layout="fluid" spacing="comfortable">
           <GridColumn medium="4">
             <Hyperlink
               href="https://www.flightstats.com/v2/flight-tracker/departures/FRA"
